@@ -69,8 +69,8 @@ module.exports = {
     entry: getEntrys,
     output: {
         path: env === 'development' ? DEV_PATH : BUILD_PATH,
+        /*publicPath: "/assets",*/
         filename: "[name].js"
-            /*publicPath: "/assets"*/
     },
     //目前最流行的Source Maps选项是cheap-module-eval-source-map，这个工具会帮助开发环境下在Chrome/Firefox中显示源代码文件，其速度快于source-map与eval-source-map：
     devtool: env === 'development' ? 'cheap-module-eval-source-map' : 'hidden-source-map',
