@@ -92,7 +92,7 @@ module.exports = {
             test: /\.js$/,
             loader: "eslint-loader",
             exclude: /node_modules/,
-            enforce: 'pre'//webpack2写法
+            enforce: 'pre' //webpack2写法
         }, {
             test: /\.vue$/,
             loader: 'vue-loader'
@@ -116,11 +116,12 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel-loader',
             query: {
-                /*cacheDirectory: true,*/
+                cacheDirectory: true,
                 presets: ['es2015', 'react'],
                 plugins: [
-                    ["transform-object-rest-spread"]/*,
-                    ["transform-runtime"]*/
+                    ["transform-object-rest-spread"]
+                    /*,
+                                        ["transform-runtime"]*/
                 ]
             }
         }]
@@ -138,7 +139,7 @@ module.exports = {
     //externals对象的key是给require时用的，比如require('vue'),，对象的value表示的是如何在global（即window）中访问到该对象，这里是window.Vue
     externals: {
         'vue': 'Vue',
-        'vue-router':'VueRouter'
+        'vue-router': 'VueRouter'
     },
     plugins: HtmlWebpack.concat(commonPlugin),
     watch: env === 'development' ? true : false
@@ -156,14 +157,15 @@ switch (env) {
             }),
             //每次运行webpack清理上一次的文件夹
             new CleanPlugin([BUILD_PATH]),
-            ////压缩混淆JS插件
+            //压缩混淆JS插件
             new webpack.optimize.UglifyJsPlugin({
                 compress: {
                     warnings: false,
                     drop_console: true
                 },
                 comments: false,
-                beautify: false
+                beautify: false,
+                sourceMap: false
             })
         ]);
         break;
