@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5f82186c495466aec4ab"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d56569907fd1f3199021"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -715,7 +715,7 @@
 /***/ function(module, exports) {
 
 "use strict";
-eval("\"use strict\";\n\nvar b = 2333333333333333333;//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTYuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL21vZHVsZXMvdXNlci91c2VyLmpzP2U2N2YiXSwic291cmNlc0NvbnRlbnQiOlsibGV0IGI9MjMzMzMzMzMzMzMzMzMzMzMzMztcblxuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIHNyYy9tb2R1bGVzL3VzZXIvdXNlci5qcyJdLCJtYXBwaW5ncyI6Ijs7QUFBQSIsInNvdXJjZVJvb3QiOiIifQ==");
+eval("\"use strict\";\n\nfunction unique(a) {\n  return Array.from(new Set(a));\n}\n\nvar a = [{ name: \"hanzichi\" }, { age: 30 }, new String(1), new Number(1)];\nvar ans = unique(a);\nconsole.log(ans); // => [Object, Object, String, Number]//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTYuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL21vZHVsZXMvdXNlci91c2VyLmpzP2U2N2YiXSwic291cmNlc0NvbnRlbnQiOlsiXG5mdW5jdGlvbiB1bmlxdWUoYSkge1xuICByZXR1cm4gQXJyYXkuZnJvbShuZXcgU2V0KGEpKTtcbn1cblxudmFyIGEgPSBbe25hbWU6IFwiaGFuemljaGlcIn0sIHthZ2U6IDMwfSwgbmV3IFN0cmluZygxKSwgbmV3IE51bWJlcigxKV07XG52YXIgYW5zID0gdW5pcXVlKGEpO1xuY29uc29sZS5sb2coYW5zKTsgLy8gPT4gW09iamVjdCwgT2JqZWN0LCBTdHJpbmcsIE51bWJlcl1cblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyBzcmMvbW9kdWxlcy91c2VyL3VzZXIuanMiXSwibWFwcGluZ3MiOiI7O0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOyIsInNvdXJjZVJvb3QiOiIifQ==");
 
 /***/ }
 

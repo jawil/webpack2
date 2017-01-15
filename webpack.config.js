@@ -85,13 +85,14 @@ module.exports = {
     module: {
         /* preLoaders: [{
                test: /\.js$/,
-               loader: "eslint-loader",
+               loader: "eslint-loader",//webpack1写法
                exclude: /node_modules/
            }],*/
         rules: [{
             test: /\.js$/,
             loader: "eslint-loader",
-            exclude: /node_modules/
+            exclude: /node_modules/,
+            enforce: 'pre'//webpack2写法
         }, {
             test: /\.vue$/,
             loader: 'vue-loader'
@@ -102,7 +103,7 @@ module.exports = {
             include: APP_PATH
         }, {
             test: /\.(png|jpg|gif|jpeg)$/, //处理css文件中的背景图片
-            loader: 'url-loader?limit=9000&name=./static/assets/[name].[hash:4].[ext]'
+            loader: 'url-loader?limit=1&name=./static/assets/[name].[hash:4].[ext]'
                 //当图片大小小于这个限制的时候，会自动启用base64编码图片。减少http请求,提高性能
         }, {
             test: /\.html$/, //获取html里面的图片
@@ -115,7 +116,12 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel-loader',
             query: {
-                presets: ['es2015', 'react']
+                cacheDirectory: true,
+                presets: ['es2015', 'react'],
+                plugins: [
+                    ["transform-object-rest-spread"]/*,
+                    ["transform-runtime"]*/
+                ]
             }
         }]
     },
