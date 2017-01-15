@@ -25,7 +25,7 @@ module.exports = {
     // 启用的规则及各自的错误级别
     "rules" : {
         // 禁止用console
-        "no-console":1,
+        "no-console":0,
         // 禁止用分号
         "semi":[0,'never'],
         // 在同一个作用域中禁止多次重复定义

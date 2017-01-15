@@ -116,7 +116,7 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel-loader',
             query: {
-                cacheDirectory: true,
+                /*cacheDirectory: true,*/
                 presets: ['es2015', 'react'],
                 plugins: [
                     ["transform-object-rest-spread"]/*,
@@ -137,7 +137,8 @@ module.exports = {
     // 配置了这个属性之后 vue 和 vue-router这些第三方的包都不会被构建进 js 中，那么我们就需要通过 cdn 进行文件的引用了
     //externals对象的key是给require时用的，比如require('vue'),，对象的value表示的是如何在global（即window）中访问到该对象，这里是window.Vue
     externals: {
-        'vue': 'Vue'
+        'vue': 'Vue',
+        'vue-router':'VueRouter'
     },
     plugins: HtmlWebpack.concat(commonPlugin),
     watch: env === 'development' ? true : false
