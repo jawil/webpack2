@@ -109,19 +109,19 @@ module.exports = {
             test: /\.html$/, //获取html里面的图片
             loader: 'html-loader'
         }, {
+            //当我们需要读取json格式文件时，我们不再需要安装任何loader，webpack2中将会内置 json-loader，自动支持json格式的读取（喜大普奔啊）。
             test: /\.json$/, //获取json数据的loader
             loader: 'json-loader'
         }, {
             test: /\.js$/, //用babel编译jsx和es6
             exclude: /node_modules/,
             loader: 'babel-loader',
-            query: {
+            options: {
                 cacheDirectory: true,
                 presets: ['es2015', 'react'],
                 plugins: [
-                    ["transform-object-rest-spread"]
-                    /*,
-                                        ["transform-runtime"]*/
+                    ["transform-object-rest-spread"],
+                    ["transform-runtime"]
                 ]
             }
         }]
@@ -152,12 +152,13 @@ switch (env) {
                     NODE_ENV: '"production"'
                 }
             }),
+            //loader的最小化文件模式将会在webpack 3或者后续版本中被彻底取消掉.为了兼容部分旧式loader，你可以通过 LoaderOptionsPlugin 的配置项来提供这些功能。
             new webpack.LoaderOptionsPlugin({
                 minimize: true
             }),
             //每次运行webpack清理上一次的文件夹
             new CleanPlugin([BUILD_PATH]),
-            //压缩混淆JS插件
+            //压缩混淆JS插件,UglifyJsPlugin 将不再支持让 Loaders 最小化文件的模式。debug 选项已经被移除。Loaders 不能从 webpack 的配置中读取到他们的配置项。
             new webpack.optimize.UglifyJsPlugin({
                 compress: {
                     warnings: false,
