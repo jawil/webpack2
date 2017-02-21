@@ -202,7 +202,7 @@
 
 `UglifyJsPlugin` 将不再支持让 Loaders 最小化文件的模式。`debug` 选项已经被移除。Loaders 不能从 webpack 的配置中读取到他们的配置项。
 
-**loader**的最小化文件模式将会在webpack 3或者后续版本中被彻底取消掉.
+loade的最小化文件模式将会在webpack 3或者后续版本中被彻底取消掉.
 
 为了兼容部分旧式loader，你可以通过 `LoaderOptionsPlugin` 的配置项来提供这些功能。
 
