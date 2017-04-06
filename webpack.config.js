@@ -75,12 +75,12 @@ module.exports = {
     //目前最流行的Source Maps选项是cheap-module-eval-source-map，这个工具会帮助开发环境下在Chrome/Firefox中显示源代码文件，其速度快于source-map与eval-source-map：
     devtool: env === 'development' ? 'cheap-module-eval-source-map' : 'hidden-source-map',
     devServer: {
-        contentBase: DEV_PATH,
+        contentBase: ROOT_PATH,
         historyApiFallback: true,
         hot: true,
         open: true,
         inline: true,
-        port: 3333
+        port: 8888
     },
     module: {
         /* preLoaders: [{
@@ -132,15 +132,18 @@ module.exports = {
         //模块别名定义，方便后续直接引用别名，无须多写长长的地址
         alias: {
             'assets': path.resolve(__dirname, './src/assets'),
-            'components': path.resolve(__dirname, './src/components')
+            'components': path.resolve(__dirname, './src/components'),
+            'common': path.resolve(__dirname, './src/common')
         }
     },
     // 配置了这个属性之后 vue 和 vue-router这些第三方的包都不会被构建进 js 中，那么我们就需要通过 cdn 进行文件的引用了
     //externals对象的key是给require时用的，比如require('vue'),，对象的value表示的是如何在global（即window）中访问到该对象，这里是window.Vue
-    externals: {
-        'vue': 'Vue',
-        'vue-router': 'VueRouter'
-    },
+
+    /*  externals: {
+      'vue': 'Vue',
+      'vue-router': 'VueRouter'
+  },*/
+
     plugins: HtmlWebpack.concat(commonPlugin),
     watch: env === 'development' ? true : false
 }
